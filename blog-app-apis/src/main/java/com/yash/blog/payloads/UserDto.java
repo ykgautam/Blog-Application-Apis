@@ -12,20 +12,20 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDto {
-	
+
 	private int id;
-	
-	@NotEmpty  //used for validation restricting empty / null values
-	@Size(min=4,message = "Username must be minimum of 4 characters")
+
+	@NotEmpty // used for validation restricting empty / null values
+	@Size(min = 4, message = "Username must be minimum of 4 characters")
 	private String name;
-	
+
 	@Email(message = "Email addres is not valid !!")
 	private String email;
-	
+
 	@NotEmpty
-	@Size(min=3,max=10,message = "password must be minimum 3 chars and max 10 chars")
+	@Size(min = 3, max = 10, message = "password must be minimum 3 chars and max 10 chars")
 	private String password;
-	
+
 	@NotEmpty
 	private String about;
 }

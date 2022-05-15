@@ -2,6 +2,8 @@ package com.yash.blog.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,8 @@ import com.yash.blog.payloads.ApiResponse;
 import com.yash.blog.payloads.CategoryDto;
 import com.yash.blog.services.CategoryService;
 
+import lombok.val;
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -27,14 +31,14 @@ public class CategoryController {
 
 	//	create
 	@PostMapping("/")
-	public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
+	public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
 		CategoryDto createdCategory = this.categoryService.createCategory(categoryDto);
 		return new ResponseEntity<CategoryDto>(createdCategory, HttpStatus.CREATED);
 	}
 
 	//	update	
 	@PutMapping("/{categoryId}")
-	public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto,
+	public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,
 			@PathVariable("categoryId") Integer catId) {
 		CategoryDto createdCategory = this.categoryService.updateCategory(categoryDto, catId);
 		return new ResponseEntity<CategoryDto>(createdCategory, HttpStatus.OK);
