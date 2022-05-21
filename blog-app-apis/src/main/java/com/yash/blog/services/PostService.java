@@ -15,7 +15,7 @@ public interface PostService {
 	PostDto updatePost(PostDto postDto, Integer postId);
 
 	//	get all Posts
-	PostResponse getAllPosts(Integer pageNumber, Integer pageSize);
+	PostResponse getAllPosts(Integer pageNumber, Integer pageSize,String sortBy, String sortDir);
 
 	//	get
 	PostDto getPostById(Integer postId);
